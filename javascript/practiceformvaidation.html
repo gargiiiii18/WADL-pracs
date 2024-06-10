@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        body{
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            background: white;  
+        }
+
+        form{
+            height: 100%;
+            background: skyblue;
+            width: 50%;
+            overflow: auto;
+        }
+
+        .formdesign{
+            padding: 45px;
+            font-size: 20px;
+           
+        }
+
+        .formdesign input{
+            border: 1px solid black;
+            border-radius: 20px;
+            width: 50%;
+            padding: 12px;
+            font-size: 15px;
+        }
+
+        .btn{
+            padding: 14px;
+            width: 200px;
+           height: 50px;
+           margin: 12px;
+           font-size: 20px;
+           font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+           border-radius: 24px;
+           border: 1px solid black;
+           box-shadow: 2px 2px 7px rgb(43, 43, 43);
+           cursor: pointer;
+        }
+
+        input[type="radio"] {
+            padding: 24px;
+            font-size: 24px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .radio{
+            padding-left: 45px;
+            font-size: 20px;
+        }
+
+        .select{
+            padding: 45px;
+            font-size: 20px;
+        }
+
+        span.formerror{
+            color: red;
+            display: block; /* Ensure the span takes up space even if empty */
+            margin-top: 5px; /* Add some space between the input and the error message */
+        }
+    </style>
+</head>
+<body>
+    <form action="/myform.php" name="myform" onsubmit="return validateform()" method="post">
+    <div class="formdesign" id="name">
+        Name: <input type="text" name="name"><b><span class="formerror"></span></b>
+    </div>
+    
+    <div class="formdesign" id="email">
+        Email: <input type="email" name="email"><b><span class="formerror"></span></b>
+    </div>
+    
+    <div class="formdesign" id="contact">
+        Contact No.: <input type="text" name="contact"><b><span class="formerror"></span></b>
+    </div>
+    
+    <div class="formdesign" id="pass">
+        Password: <input type="password" name="pass"><b><span class="formerror"></span></b>
+    </div>
+    
+    <div class="formdesign" id="cpass">
+       Confirm Password: <input type="password" name="cpass"><b><span class="formerror"></span></b>
+    </div>
+
+   <div class="radio">
+        <label for="radio">Select your preferences:<br><br></label>
+<label for="radio">Hockey</label>
+    <input type="radio"><br>
+    <label for="radio">Cricket</label>
+   <input type="radio"><br>
+   <label for="radio">Football</label>
+  <input type="radio"><br>
+  <label for="radio">Golf</label>
+   <input type="radio"><br>
+</div>
+
+    <div class="select">
+        <label for="select">Select your gender</label>
+    <select id="gender">
+    <option value="opt0">Select your option</option>
+    <option value="opt1" id="gender">Male</option>
+    <option value="opt2">Female</option>
+</select>
+</div>
+
+<div class="formdesign">
+    Upload your documents<input type="file">
+</div>
+
+
+        <!-- <input type="button" value="Submit" class="btn" id="sbtn"> -->
+        <button class="btn" id="sbtn" type="submit">Submit</button>
+   
+        <input type="button" value="Reset" class="btn" id="rbtn" onclick="clearform()">
+    
+    
+    
+    
+    <script>
+        function seterror(id, error){
+            var element=document.getElementById("name").value;
+            element.getElementsByClassName("formerror")[0].innerHTML=error;
+        }
+
+        function validateform(){
+            var returnval= true;
+            var name = document.forms["myform"]["name"].value;
+            if(name.length<5){
+                seterror("name", "Length of the name is too short!");
+                returnval=false;
+            }
+            return returnval;
+            
+        }
+    </script>
+    </form>
+</body>
+</html>

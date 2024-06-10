@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+</head>
+<body>
+    <form id="myForm">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email">
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById("email").addEventListener("submit", function(event){
+            var email=document.getElementById("email").value;
+            if(!isvalid(email)){
+                alert("invalied");
+                event.preventDefault();
+            }
+            else{
+                alert("valid");
+            }
+        })
+        
+    </script>
+</body>
+</html>

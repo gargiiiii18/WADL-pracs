@@ -1,0 +1,15 @@
+function palindrome(num){
+    let numstr=num.toString();
+    let reversed=numstr.split('').reverse().join('');
+
+    if(reversed==numstr){
+        console.log(num+ " is a palindrome");
+    }
+    else{
+        console.log(num+" is not a palindrome");
+    }
+}
+
+let num=123;
+palindrome(num);
+

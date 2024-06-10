@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            padding: 10px 50px;
+        }
+
+        .formdesign{
+            font-size: 20px;
+        }
+
+        .formdesign input{
+            width: 50%;
+            margin: 15px;
+            padding: 12px 20px;
+            border: 1px solid blue;
+            border-radius: 4px;
+            font-size: 15px;
+        }
+        .btn{
+            border-radius: 16px;
+            width: 100px;
+            height: 50px;
+            font-size: 25px;
+            margin: 22px 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="/myfile.php" onsubmit="return validateform()" name="myform">
+    <div class="formdesign" id="name">
+        Name: <input type="text" name="name"><span class="formerror"></span>
+    </div>
+    <div class="formdesign" id="email">
+        Email: <input type="text" name="name"><span class="formerror"></span>
+    </div>
+    <div class="formdesign" id="pass">
+        Password: <input type="password" name="name"><span class="formerror"></span>
+    </div>
+    <div class="formdesign" id="cpass">
+        Confirm password: <input type="password" name="name"><span class="formerror"></span>
+    </div>
+
+    <input type="button" class="btn" value="Submit">
+</form>
+
+   
+    <script>
+        function seterror(id, error){
+            element=document.getElementsById(id);
+            element.getElementsByClassName("formerror")[0].innerHTML=error;
+        }
+
+        function validateform(){
+            var returnval=true;
+            var name = document.forms['myform']["name"].value;
+            if(name.length<10){
+                seterror("name", "name too short!");
+                returnval=false;
+            }
+            return returnval;
+        }
+    </script>
+</body>
+</html>

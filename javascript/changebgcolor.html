@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Background Color Changer</title>
+    <style>
+        body {
+            transition: background-color 0.5s;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 100px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // Array of colors
+        const colors = ["#FF5733", "#33FF57", "#3357FF", "#FF33A8", "#33FFF0", "#FFDD33"];
+        let currentIndex = 0;
+
+        // Function to change background color
+        function changeBackgroundColor() {
+            document.body.style.backgroundColor = colors[currentIndex];
+            currentIndex = (currentIndex + 1) % colors.length;
+        }
+
+        // Call the function every 5 seconds
+        setInterval(changeBackgroundColor, 5000);
+    </script>
+    <h1>Background Color Changer</h1>
+    <p>Refreshing every 5 seconds...</p>
+</body>
+</html>

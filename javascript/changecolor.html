@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            transition: background-color 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <h1>background changes after every 5 secs...</h1>
+    <script>
+        const colors=["#FF5733", "#33FF57", "#3357FF", "#FF33A8", "#33FFF0", "#FFDD33"];
+        let current_index=0;
+
+        function changecolor(){
+            document.body.style.backgroundColor=colors[current_index];
+            current_index=(current_index+1)%colors.length;
+
+            
+        }
+        setInterval(changecolor, 5000);
+    </script>
+</body>
+</html>
